@@ -1,62 +1,37 @@
 <?php
-//Klasės ir Objektai
 
-//Klasė
-class Darbuotojas {
+/* 1 užduotis
 
-    //Trys matomumo variantai 
-    //public
-    //private
-    //protected 
+Sukurkite Klasę kuri turi tris savybes. company, address, employee_count. 
+Klasė turi turėti konstruktorių ir galimybę priimti tris argumentus. 
+Taip pat klasės viduje aprašykite metodą kuris tikrintų darbuotojų skaičių gaunamą 
+iš employee_count savybės ir grąžintų teigiamą arba neigiamą atsakymą sąlygai 
+“Ar darbuotojų skaičius yra didesnis nei 3”. 
+Jeigu taip atspausdinkite įmonės duomenis.
 
-    //Savybes | Properties
-    private $vardas;
-    private $pavarde;
-	private $id;
+ */
 
-    //Construct methodas pasileidzia vos tik iniciavus klase
-    //__destruct()
-    public function __construct($vardas, $pavarde, $id) {
-        $this->vardas = $vardas;
-        $this->pavarde = $pavarde;
-		$this->id = $id;
-		
-    }
- 
-    //Metodas | Method
-    public function priskirkVardaPavarde($vardas, $pavarde, $id) {
-        //$this - yra kreipimasis į funkciją kurioje yra metodas
-        $this->vardas = $vardas;
-		$this->pavarde = $pavarde;
-		$this->id = $id;
-		pakeiskVardaPavarde();
-    }
+class Companies {
 	
-	public function pakeiskVardaPavarde($vardas, $pavarde, $id) {
-        //$this - yra kreipimasis į funkciją kurioje yra metodas
-        $this->vardas = $vardas;
-		$this->pavarde = $pavarde;
-		$this->id = '0';
-    }
-
-    public function isveskVardaPavarde() {
-        //$this->setName();
-        return $this->vardas;
-		return $this->pavarde;
-		return $this->id;
-    }
-
+	public $name;
+	public $address;
+	public $employee_count; 
+	
+	public function __construct($name,$address,$employee_count) {
+		$this->name = $name;
+		$this->address = $address;
+		$this->employee_count = $employee_count;		
+	}
+	
+	public function data() {
+	
+		if ($this->employee_count > 3) {
+			return '<h1>Įmonė '.$this->name.' yra adresu: '.$this->address.', turi viso '.$this->employee_count.' darbuotojų</h1>';
+		}
+	}
 }
 
-//Objektas
-$darbuotojas1 = new Darbuotojas('Adomas', 'Mickevicius', '37510100685');
+$sba = new Companies('SBA Home','Joniškės g.21, Klaipėda','50');
+echo $sba -> data();
 
-//$test->setName('Vilius');
-
-//echo $test->name;
-
-echo $darbuotojas1->isveskVardaPavarde() . '<br />';
-echo $darbuotojas1->isveskVardaPavarde();
-
-echo '<pre>';
-print_r($darbuotojas1);
+?>
