@@ -47,22 +47,25 @@ class Companies {
 	$get_data = file_get_contents($target);
 	$data_decoded = json_decode($get_data,true);
 
-	echo '<h3>SBA grupę sudaro šios įmonės:</h3>';
+	echo '<h3>IT hakerių grupę sudaro šios įmonės:</h3>';
 
 	foreach ($data_decoded as $array => $company) {
 		
 		$name = $company["company"];
 		$address = $company["address"];
 		$employee_count = $company["employee_count"]; 
+		
+		if ($employee_count > 3) {
 			
-		$sba = new Companies($name,$address,$employee_count);
-		echo 'Įmonė ';
-		echo $sba -> getName();
-		echo ' yra adresu: '; 
-		echo $sba -> getAddress();
-		echo ', turi viso ';
-		echo $sba -> getEmployee_count();
-		echo ' darbuotojų<br>';
+			$hackeriai = new Companies($name,$address,$employee_count);
+			echo 'Įmonė ';
+			echo $hackeriai -> getName();
+			echo ' yra adresu: '; 
+			echo $hackeriai -> getAddress();
+			echo ', turi viso ';
+			echo $hackeriai -> getEmployee_count();
+			echo ' darbuotojų<br>';
+		}
 	}
 
 
