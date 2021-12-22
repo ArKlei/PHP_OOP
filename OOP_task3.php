@@ -51,9 +51,9 @@ class Companies {
 
 	foreach ($data_decoded as $array => $company) {
 		
-		$name = $company[0];
-		$address = $company[1];
-		$employee_count = $company[2]; 
+		$name = $company["company"];
+		$address = $company["address"];
+		$employee_count = $company["employee_count"]; 
 			
 		$sba = new Companies($name,$address,$employee_count);
 		echo 'Įmonė ';
