@@ -18,10 +18,9 @@ $post = [
 class Validator {
 	
     public $post; //$_POST duomenys iš inputų
-    public $fields; //Validavimu iskirtas masyvas tokios pat struktūros
-
-	// įprastas konstruktorius su paduodamais masyvais iš inputų ir validavimo masyvo
-    public function __construct($post, $fields) {
+    public $fields; //Validavimu iskirtas masyvas tokios pat struktūros	// įprastas konstruktorius su paduodamais masyvais iš inputų ir validavimo masyvo
+	
+	public function __construct($post, $fields) {
 
         $this->post   = $post; // šio objekto post masyvas lygus gautam masyvui per post iš inputų
         $this->fields = $fields; //šio objekto validavimo masyvas lygus tam pačiam užduotam validavimo masyvui (nesikeičia kintamieji)
@@ -44,10 +43,11 @@ class Validator {
             if($this->check_fields($key, $this->post) ) // tikrina, paleidžiant kitą funkciją su įkritusiais iš inputų duomenimis ar yra raktai. Esant - spausdina raktų pavadinimus 
                 echo $key . '<br />';
 			
-			for ($i=0; $i<3; $i++) {
+			
+			foreach($this->post as $key2 => $value2) {
 				
-				if ($key == $this->post[$i]) {
-					echo 'atitinka raktai';
+				if ($key == $key2) {
+					echo 'atitinka raktai<br>';
 				}
 				
 			}
