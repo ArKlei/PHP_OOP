@@ -32,7 +32,7 @@ class Companies {
 	}
 }
 
-//$sba = new Companies('SBA Home','Joniškės g.21, Klaipėda',rand(1,100));
-//echo $sba -> data();
+$sba = new Companies('SBA Home','Joniškės g.21, Klaipėda',rand(1,100));
+echo $sba -> data();
 
 ?>
