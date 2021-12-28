@@ -5,6 +5,7 @@ spl_autoload_register(function () {
     include './Abstrakcija.php';
     include './Companies.php';
 	include './Furniture.php';
+	include '../Helpers/www.php';
 });
 
 $sba = new Companies('SBA Home','Joniškės g.21, Klaipėda',rand(1,100));
